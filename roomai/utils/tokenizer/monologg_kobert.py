@@ -25,33 +25,35 @@ from transformers import PreTrainedTokenizer
 logger = logging.getLogger(__name__)
 
 VOCAB_FILES_NAMES = {
-    "vocab_file": "tokenizer_78b3253a26.model",
+    "vocab_file": "kobert_vocab_file.model",
     "vocab_txt": "vocab.txt",
 }
 
+basepath = "data/vocab/"
+
 PRETRAINED_VOCAB_FILES_MAP = {
     "vocab_file": {
-        "monologg/kobert": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/kobert/tokenizer_78b3253a26.model",
-        "monologg/kobert-lm": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/kobert-lm/tokenizer_78b3253a26.model",
-        "monologg/distilkobert": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/distilkobert/tokenizer_78b3253a26.model",
+        "roomai/kobert": basepath +  "kobert_vocab_file.model",
+        "roomai/kobert-lm": basepath + "kobert_lm_vocab_file.model",
+        "roomai/kobert-distil": basepath + "kobert_distil_vocab_file.model",
     },
     "vocab_txt": {
-        "monologg/kobert": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/kobert/vocab.txt",
-        "monologg/kobert-lm": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/kobert-lm/vocab.txt",
-        "monologg/distilkobert": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/distilkobert/vocab.txt",
+        "roomai/kobert": basepath + "kobert_vocab.txt",
+        "roomai/kobert-lm":  basepath + "kobert_lm_vocab.txt",
+        "roomai/kobert-distil":  basepath + "kobert_distil_vocab.txt",
     },
 }
 
 PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES = {
-    "monologg/kobert": 512,
-    "monologg/kobert-lm": 512,
-    "monologg/distilkobert": 512,
+    "roomai/kobert": 512,
+    "roomai/kobert-lm": 512,
+    "roomai/kobert-distil": 512,
 }
 
 PRETRAINED_INIT_CONFIGURATION = {
-    "monologg/kobert": {"do_lower_case": False},
-    "monologg/kobert-lm": {"do_lower_case": False},
-    "monologg/distilkobert": {"do_lower_case": False},
+    "roomai/kobert": {"do_lower_case": False},
+    "roomai/kobert-lm": {"do_lower_case": False},
+    "roomai/kobert-distil": {"do_lower_case": False},
 }
 
 SPIECE_UNDERLINE = "▁"
@@ -90,6 +92,7 @@ class KoBertTokenizer(PreTrainedTokenizer):
             mask_token=mask_token,
             **kwargs,
         )
+
 
         # Build vocab
         self.token2idx = dict()
