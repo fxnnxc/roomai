@@ -29,29 +29,31 @@ VOCAB_FILES_NAMES = {
     "vocab_txt": "vocab.txt",
 }
 
+import os 
+
 PRETRAINED_VOCAB_FILES_MAP = {
     "vocab_file": {
-        "monologg/kobert": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/kobert/tokenizer_78b3253a26.model",
-        "monologg/kobert-lm": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/kobert-lm/tokenizer_78b3253a26.model",
-        "monologg/distilkobert": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/distilkobert/tokenizer_78b3253a26.model",
+        "roomai/kobert": "data/vocab/kobert_vocab_file.model",
+        "roomai/kobert-lm": "data/vocab/kobert_lm_vocab_file.model",
+        "roomai/distilkobert": "data/vocab/kobert_distil_vocab_file.model",
     },
     "vocab_txt": {
-        "monologg/kobert": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/kobert/vocab.txt",
-        "monologg/kobert-lm": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/kobert-lm/vocab.txt",
-        "monologg/distilkobert": "https://s3.amazonaws.com/models.huggingface.co/bert/monologg/distilkobert/vocab.txt",
+        "roomai/kobert": "data/vocab/kobert_vocab.txt",
+        "roomai/kobert-lm":  "data/vocab/kobert_lm_vocab.txt",
+        "roomai/distilkobert":  "data/vocab/kobert_distil_vocab.txt",
     },
 }
 
 PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES = {
-    "monologg/kobert": 512,
-    "monologg/kobert-lm": 512,
-    "monologg/distilkobert": 512,
+    "roomai/kobert": 512,
+    "roomai/kobert-lm": 512,
+    "roomai/distilkobert": 512,
 }
 
 PRETRAINED_INIT_CONFIGURATION = {
-    "monologg/kobert": {"do_lower_case": False},
-    "monologg/kobert-lm": {"do_lower_case": False},
-    "monologg/distilkobert": {"do_lower_case": False},
+    "roomai/kobert": {"do_lower_case": False},
+    "roomai/kobert-lm": {"do_lower_case": False},
+    "roomai/distilkobert": {"do_lower_case": False},
 }
 
 SPIECE_UNDERLINE = "▁"
