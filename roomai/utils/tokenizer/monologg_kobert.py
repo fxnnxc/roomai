@@ -25,35 +25,35 @@ from transformers import PreTrainedTokenizer
 logger = logging.getLogger(__name__)
 
 VOCAB_FILES_NAMES = {
-    "vocab_file": "tokenizer_78b3253a26.model",
+    "vocab_file": "kobert_vocab_file.model",
     "vocab_txt": "vocab.txt",
 }
 
-import os 
+basepath = "data/vocab/"
 
 PRETRAINED_VOCAB_FILES_MAP = {
     "vocab_file": {
-        "roomai/kobert": "data/vocab/kobert_vocab_file.model",
-        "roomai/kobert-lm": "data/vocab/kobert_lm_vocab_file.model",
-        "roomai/distilkobert": "data/vocab/kobert_distil_vocab_file.model",
+        "roomai/kobert": basepath +  "kobert_vocab_file.model",
+        "roomai/kobert-lm": basepath + "kobert_lm_vocab_file.model",
+        "roomai/kobert-distil": basepath + "kobert_distil_vocab_file.model",
     },
     "vocab_txt": {
-        "roomai/kobert": "data/vocab/kobert_vocab.txt",
-        "roomai/kobert-lm":  "data/vocab/kobert_lm_vocab.txt",
-        "roomai/distilkobert":  "data/vocab/kobert_distil_vocab.txt",
+        "roomai/kobert": basepath + "kobert_vocab.txt",
+        "roomai/kobert-lm":  basepath + "kobert_lm_vocab.txt",
+        "roomai/kobert-distil":  basepath + "kobert_distil_vocab.txt",
     },
 }
 
 PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES = {
     "roomai/kobert": 512,
     "roomai/kobert-lm": 512,
-    "roomai/distilkobert": 512,
+    "roomai/kobert-distil": 512,
 }
 
 PRETRAINED_INIT_CONFIGURATION = {
     "roomai/kobert": {"do_lower_case": False},
     "roomai/kobert-lm": {"do_lower_case": False},
-    "roomai/distilkobert": {"do_lower_case": False},
+    "roomai/kobert-distil": {"do_lower_case": False},
 }
 
 SPIECE_UNDERLINE = "▁"
@@ -92,6 +92,7 @@ class KoBertTokenizer(PreTrainedTokenizer):
             mask_token=mask_token,
             **kwargs,
         )
+
 
         # Build vocab
         self.token2idx = dict()
