@@ -1,8 +1,6 @@
 
 from deeping.nlp import *
 
-
-
 MODELS = {
     "bert-entity": None
 }

@@ -1,6 +1,9 @@
-# roomai
+# Zipbora (AI) 
 
-This repo contains only api, not **the deeplearning training code** of the model. 
+The base repository for the AI features of Zipbora project
+
+* This repo contains only api, not **the deeplearning training code** of the model. 
+
 
 ## Installation
 
